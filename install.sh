@@ -8,10 +8,10 @@ else
    USR1=$USR
    HOME1="/home/$USR"
 fi
-IPC="$HOME1/.ethereum/goerli/geth.ipc"
+IPC="$HOME1/.ethereum/geth.ipc"
 STAKERADDRESS=`cat $HOME1/.local/share/nucypher/ursula.json | jq .checksum_address| tr -d '"'`
-crontab -l | { cat; echo "*/5 * * * * su $USR1 -c 'cd ~ && source nucypher-venv/bin/activate && nucypher status stakers --provider ~/.ethereum/goerli/geth.ipc --network gemini --poa > /tmp/nucypher.tmp && cp /tmp/nucypher.tmp /tmp/nucypher.txt'"; } | crontab -
-crontab -l | { cat; echo "*/5 * * * * su $USR1 -c 'cd ~ && source nucypher-venv/bin/activate && nucypher worklock status --network gemini --provider ~/.ethereum/goerli/geth.ipc --bidder-address $STAKERADDRESS --poa > /tmp/worklock.tmp && cp /tmp/worklock.tmp /tmp/worklock.txt'"; } | crontab -
+crontab -l | { cat; echo "*/5 * * * * su $USR1 -c 'cd ~ nucypher status stakers --provider ~/.ethereum/geth.ipc > /tmp/nucypher.tmp && cp /tmp/nucypher.tmp /tmp/nucypher.txt'"; } | crontab -
+crontab -l | { cat; echo "*/5 * * * * su $USR1 -c 'cd ~ nucypher worklock status --provider ~/.ethereum/geth.ipc --bidder-address $STAKERADDRESS > /tmp/worklock.tmp && cp /tmp/worklock.tmp /tmp/worklock.txt'"; } | crontab -
 mkdir -p /etc/zabbix/scripts
 curl -s https://raw.githubusercontent.com/sl-he/nucypher_zabbix/master/geth.sh > /etc/zabbix/scripts/geth.sh
 curl -s https://raw.githubusercontent.com/sl-he/nucypher_zabbix/master/nucypher-stats.sh > /etc/zabbix/scripts/nucypher-stats.sh
