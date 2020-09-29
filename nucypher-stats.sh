@@ -8,7 +8,7 @@ if [ -z "$USR" ]; then
 else
    HOME1="/home/$USR"
 fi
-IPC="$HOME1/.ethereum/goerli/geth.ipc"
+IPC="$HOME1/.ethereum/geth.ipc"
 ADDRESS=`cat $HOME1/.local/share/nucypher/ursula.json | jq .checksum_address| tr -d '"'`
 STATSFILE=/tmp/nucypher.txt
 CACHE_FILE="/tmp/nucypher.`echo $STATSFILE | md5sum | cut -d" " -f1`.cache"
