@@ -1,7 +1,7 @@
 ## Zabbix Monitoring For NuCypher Masternode
 
 ### How to install:
-`curl -s https://raw.githubusercontent.com/sl-he/nucypher_zabbix/master/install.sh | bash`
+`curl -s https://raw.githubusercontent.com/dmirgaleev/nucypher_zabbix/master/install.sh | bash`
 
 ## Shell scripts
 Very needed for monitoring NuCypher masternode in zabbix monitoring system
@@ -12,12 +12,12 @@ This script calculates the **blockheight** value and passes it to zabbix agent. 
 ### git_update.sh
 Scripts for cheking for new release from github and update all scripts.
 #### Usage:
-`curl -s https://raw.githubusercontent.com/sl-he/nucypher_zabbix/master/git_update.sh | bash`
+`curl -s https://raw.githubusercontent.com/dmirgaleev/nucypher_zabbix/master/git_update.sh | bash`
 
 ### install.sh
 Script for install other scripts
 #### Usage:
-`curl -s https://raw.githubusercontent.com/sl-he/nucypher_zabbix/master/install.sh | bash`
+`curl -s https://raw.githubusercontent.com/dmirgaleev/nucypher_zabbix/master/install.sh | bash`
 
 ### nucypher-stats.sh
 This script calculates a lot of NuCypher masternode parameters like tokens, nodes amount, etc and passes it to zabbix agent.
